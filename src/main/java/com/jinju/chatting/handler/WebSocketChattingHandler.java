@@ -1,5 +1,5 @@
 package com.jinju.chatting.handler;
-
+/*
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jinju.chatting.dao.ChatMessage;
 import com.jinju.chatting.dao.ChatRoom;
@@ -19,6 +19,7 @@ import org.springframework.web.socket.handler.TextWebSocketHandler;
 @Component
 @RequiredArgsConstructor
 @Slf4j
+
 public class WebSocketChattingHandler extends TextWebSocketHandler {
     private final ObjectMapper objectMapper;
     private final ChatService chatService;
@@ -36,7 +37,5 @@ public class WebSocketChattingHandler extends TextWebSocketHandler {
         room.handleActions(session,chatMessage,chatService);
 
     }
-
-
-
 }
+*/

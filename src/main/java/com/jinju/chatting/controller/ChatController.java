@@ -1,13 +1,18 @@
 package com.jinju.chatting.controller;
 
 
+import com.jinju.chatting.dao.ChatMessage;
 import com.jinju.chatting.dao.ChatRoom;
-import com.jinju.chatting.service.ChatService;
+//import com.jinju.chatting.service.ChatService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.simp.SimpMessageSendingOperations;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+/*
+//webscoket.ver
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/chat")
@@ -23,5 +28,18 @@ public class ChatController {
     @GetMapping
     public List<ChatRoom> findAllRoom() {
         return chatService.findAllRoom();
+    }
+}
+*/
+@RequiredArgsConstructor
+@Controller
+public class ChatController{
+    private final SimpMessageSendingOperations messagingTemplate;
+
+    @MessageMapping("/chat/message")
+    public void message(ChatMessage message){
+        if(ChatMessage.MessageType.ENTER.equals(message.getType()))
+           message.setMessage(message.getSender()+"님이 입장하셨습니다");
+        messagingTemplate.convertAndSend("/sub/chat/room/"+message.getRoomid(),message);
     }
 }

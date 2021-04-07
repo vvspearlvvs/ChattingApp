@@ -13,6 +13,9 @@ import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.util.*;
 
+/*
+//클래스명 변경(ChatService -> public class ChatRoomRepository {
+// websocket.ver
 @Slf4j
 @RequiredArgsConstructor
 @Service
@@ -51,5 +54,31 @@ public class ChatService {
             e.printStackTrace();
             log.error(e.getMessage(),e);
         }
+    }
+}
+*/
+// stomp.ver
+public class ChatRoomRepository {
+    private Map<String,ChatRoom> chatRoomMap;
+
+    @PostConstruct
+    private void init(){
+        chatRoomMap = new LinkedHashMap<>();
+    }
+    //채팅방 전체조회 (최근순)
+    public List<ChatRoom> findAllRoom(){
+        List chatRooms = new ArrayList<>(chatRoomMap.values());
+        Collections.reverse(chatRooms);
+        return chatRooms;
+    }
+    //채팅방번호로 조회
+    public ChatRoom findRoomById(String roomid){
+        return chatRoomMap.get(roomid);
+    }
+    //채팅방생성 : 고유의 채팅방id를 가진 채팅방객체 생성 -> Map저장소 저장
+    public ChatRoom createChatRoom(String name) {
+        ChatRoom chatRoom = ChatRoom.create(name);
+        chatRoomMap.put(chatRoom.getRoomid(),chatRoom);
+        return chatRoom;
     }
 }

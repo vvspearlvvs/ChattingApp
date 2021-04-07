@@ -1,8 +1,9 @@
 package com.jinju.chatting.dao;
 
-import com.jinju.chatting.service.ChatService;
+//import com.jinju.chatting.service.ChatService;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 import org.springframework.web.socket.WebSocketSession;
 
 import java.util.HashSet;

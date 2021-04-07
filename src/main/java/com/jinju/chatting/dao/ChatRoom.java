@@ -1,6 +1,5 @@
 package com.jinju.chatting.dao;
 
-//import com.jinju.chatting.service.ChatService;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -38,17 +37,17 @@ public class ChatRoom {
     }
 }
 */
+//stomp.ver
 @Getter
 @Setter
-//stomp.ver
-public class ChatRoom{
-    private String roomid; //채팅방id
-    private String name;   //채팅방이름
+public class ChatRoom {
+    private String roomId;
+    private String name;
 
-    public static ChatRoom create(String name){
-        ChatRoom chatroom = new ChatRoom();
-        chatroom.roomid = UUID.randomUUID().toString();
-        chatroom.name = name;
-        return chatroom;
+    public static ChatRoom create(String name) {
+        ChatRoom chatRoom = new ChatRoom();
+        chatRoom.roomId = UUID.randomUUID().toString();
+        chatRoom.name = name;
+        return chatRoom;
     }
 }

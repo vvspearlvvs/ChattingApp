@@ -1,8 +1,7 @@
-package com.jinju.demo.conifg;
+package com.jinju.demo.config;
 
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.logging.Log;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
 import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;

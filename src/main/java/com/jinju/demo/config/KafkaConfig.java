@@ -1,4 +1,4 @@
-package com.jinju.demo.conifg;
+package com.jinju.demo.config;
 
 import com.google.common.collect.ImmutableMap;
 import com.jinju.demo.model.ChattingMessage;
@@ -17,7 +17,7 @@ import org.springframework.kafka.support.serializer.JsonDeserializer;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 
 import java.util.Map;
-
+/*
 @EnableKafka
 @Configuration
 public class KafkaConfig {
@@ -65,3 +65,4 @@ public class KafkaConfig {
                 .build();
     }
 }
+*/

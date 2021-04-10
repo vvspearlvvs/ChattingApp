@@ -17,7 +17,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
         //sub용 sub topic/public -> /sub
         registry.enableSimpleBroker("/topic");
         //메시지 보낼 url send /app/message ->/pub
-        registry.setApplicationDestinationPrefixes("/app");
+        registry.setApplicationDestinationPrefixes("/kafka");
 
     }
 

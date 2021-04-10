@@ -22,7 +22,7 @@ public class ChattingController {
 
     private KafkaTemplate<String,ChattingMessage> kafkaTemplate;
 
-    //// "url/app/message"로 들어오는 메시지를 "/topic/public"을 구독하고있는 사람들에게 송신
+    //// "url/kafka/publish"로 들어오는 메시지를 "/topic/public"을 구독하고있는 사람들에게 송신
     @PostMapping(value = "/publish")
     public void sendMessage(ChattingMessage message) throws Exception {
         /*

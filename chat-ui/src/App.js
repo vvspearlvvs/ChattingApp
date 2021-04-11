@@ -39,7 +39,7 @@ const App = () => {
     })
 
   }
-
+  console.log("main app check message"+setMessages)
   return (
       <div className="App">
         {!!user ?

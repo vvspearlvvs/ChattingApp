@@ -18,22 +18,27 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins = "*",allowedHeaders = "*")
 @RequestMapping(value="/kafka")
-public class ChattingController {
 
+public class ChattingController {
+    @Autowired
     private KafkaTemplate<String,ChattingMessage> kafkaTemplate;
 
     //// "url/kafka/publish"로 들어오는 메시지를 "/topic/public"을 구독하고있는 사람들에게 송신
-    @PostMapping(value = "/publish")
-    public void sendMessage(ChattingMessage message) throws Exception {
+    @PostMapping(value = "/publish",consumes="application/json",produces="application/json")
+    public void sendMessage(@RequestBody ChattingMessage message) throws Exception {
         /*
         message.setTimeStamp(System.currentTimeMillis());
         chattingHistoryDAO.save(message);
         sender.send(BOOT_TOPIC, message);
         */
+
+        //log.info("Produce message : "+message.toString());
+        //message.setTimestamp(LocalDateTime.now().toString());
+        //kafkaTemplate.send(KafkaConstants.KAFKA_TOPIC,message).get();
+
         log.info("Produce message : "+message.toString());
         message.setTimestamp(LocalDateTime.now().toString());
-        kafkaTemplate.send(KafkaConstants.KAFKA_TOPIC,message).get();
-
+        kafkaTemplate.send(KafkaConstants.KAFKA_TOPIC, message).get();
     }
 
     @MessageMapping("/sendMessage")

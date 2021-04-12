@@ -11,7 +11,6 @@ const chatAPI = {
     },
 
     sendMessage: (username, text) => {
-        console.log("sendMessage");
         let msg = {
             user: username,
             message: text,

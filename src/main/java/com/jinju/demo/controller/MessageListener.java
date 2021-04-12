@@ -22,5 +22,6 @@ public class MessageListener {
     public void listen(ChattingMessage message) {
         log.info("sending via kafka listener..");
         template.convertAndSend("/topic/group", message);
+        log.info("convert complete to /topic/group");
     }
 }

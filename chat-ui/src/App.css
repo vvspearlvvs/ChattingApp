@@ -58,6 +58,12 @@
   font-size: 14px;
   padding-bottom: 4px;
 }
+.Message-content>.timestamp {
+  display: block;
+  color: lightgray;
+  font-size: 11px;
+  padding-bottom: 4px;
+}
 
 .Message-content>.text {
   padding: 10px;

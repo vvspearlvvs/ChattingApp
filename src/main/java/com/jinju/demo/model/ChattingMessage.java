@@ -3,8 +3,8 @@ package com.jinju.demo.model;
 import java.io.Serializable;
 
 public class ChattingMessage implements Serializable{
-    private String message;
-    private String user;
+    private String sender;
+    private String content;
     private String timestamp;
 
     public ChattingMessage() {
@@ -15,27 +15,27 @@ public class ChattingMessage implements Serializable{
     public void setTimestamp(String timestamp){
         this.timestamp = timestamp;
     }
-    public String getUser(){
-        return user;
+    public String getSender(){
+        return sender;
     }
-    public void setUser(String user){
-        this.user = user;
+    public void setUser(String sender){
+        this.sender = sender;
     }
-    public ChattingMessage(String message, String user) {
-        this.user = user;
-        this.message = message;
+    public ChattingMessage(String content, String sender) {
+        this.sender = sender;
+        this.content = content;
     }
     public String getMessage(){
-        return message;
+        return content;
     }
-    public void setContent(String message){
-        this.message = message;
+    public void setContent(String content){
+        this.content = content;
     }
     @Override
     public String toString() {
         return "Message{" +
-                "user='" + user + '\'' +
-                ", message='" + message + '\'' +
+                "sender='" + sender + '\'' +
+                ", content='" + content + '\'' +
                 ", timestamp='" + timestamp + '\'' +
                 '}';
     }

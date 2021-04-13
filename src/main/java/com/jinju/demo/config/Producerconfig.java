@@ -23,7 +23,7 @@ public class Producerconfig {
     public ProducerFactory<String, ChattingMessage> producerFactory() {
         return new DefaultKafkaProducerFactory<>(producerConfigurations());
     }
-
+    //카프카 프로듀셔 생성
     @Bean
     public Map<String, Object> producerConfigurations() {
         Map<String, Object> configurations = new HashMap<>();

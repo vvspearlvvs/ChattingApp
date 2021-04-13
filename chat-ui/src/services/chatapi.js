@@ -12,8 +12,8 @@ const chatAPI = {
 
     sendMessage: (username, text) => {
         let msg = {
-            user: username,
-            message: text,
+            sender: username,
+            content: text,
         };
         return api.post(`/publish`, msg, {
             headers: { "Content-Type": "application/json" },

@@ -39,12 +39,12 @@ public class ChattingController {
         log.info("Produce message : "+message.toString());
         message.setTimestamp(LocalDateTime.now().toString());
         kafkaTemplate.send(KafkaConstants.KAFKA_TOPIC, message).get();
-        log.info("## send commpelte!");
-    }
+     }
 
     @MessageMapping("/sendMessage")
     @SendTo("/topic/group")
     public ChattingMessage broadcastGroupMessage(@Payload ChattingMessage message) throws Exception {
+        log.info("## broadcastGroupMessage Payload "+message);
         return message;
     }
 

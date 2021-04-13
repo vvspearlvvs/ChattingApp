@@ -3,15 +3,15 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 
 const Input = ({ onSendMessage }) => {
-    const [text, setText] = useState("")
+    const [content, setContent] = useState("")
 
     let onChange = (e) => {
-        setText(e.target.value)
+        setContent(e.target.value)
     }
 
     let onSubmit = () => {
-        setText("")
-        onSendMessage(text);
+        setContent("")
+        onSendMessage(content);
     }
 
     return (
@@ -22,10 +22,10 @@ const Input = ({ onSendMessage }) => {
                 placeholder="Enter your message and press ENTER"
                 onChange={e => onChange(e)}
                 margin="normal"
-                value={text}
+                value={content}
                 onKeyPress={event => {
                     if (event.key === 'Enter') {
-                        onSubmit(text);
+                        onSubmit(content);
                     }
                 }}
                 style={{ height: "30px", width: "80%" }}

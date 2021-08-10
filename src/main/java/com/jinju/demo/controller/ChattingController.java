@@ -25,7 +25,6 @@ public class ChattingController {
     //// "url/kafka/publish"로 들어오는 메시지를 "/topic/public"을 구독하고있는 사람들에게 송신
     @PostMapping(value = "/kafka/publish",consumes="application/json",produces="application/json")
     public void sendMessage(@RequestBody ChattingMessage message) throws Exception {
-        log.info("##requeste Body"+message);
         /*
         message.setTimeStamp(System.currentTimeMillis());
         chattingHistoryDAO.save(message);

@@ -28,7 +28,15 @@
 - Consumer 구현 : 연속적인 메세지를 받아옴 (message.value)
 - Producer 시작 : python3 producer.py
 - Consumer 시작 :  python3 consumer.py
-- 메세지전송 확인 : 연속적인 메세지가 Producer에서 Consumer로 전송
+- 메세지전송 확인 : 연속적인 메세지가 Producer에서 Consumer로 전송 (topic: topic_test)
 
   ![kafka_test2](test_result/kafka_test2.PNG)
+  
+### [Twitter 실시간데이터를 Kafka로 전송하기](https://pearlluck.tistory.com/640?category=935063)
 
+- Producer 구현 : twitter API를 사용하여 raw_data['text']를 kafka의 topic으로 스트림전송
+- Producer 시작 : python3 twitter_producer.py
+- Consumser 시작 : bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic twitter_topic --from-beginning
+- 메시지전송 확인 : '김연경'으로 필터링한 트위터 데이터가 실시간으로 전송 (topic: twitter_topic)
+
+  ![kafka_test3](test_result/kafka_test3.PNG)
